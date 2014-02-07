@@ -754,7 +754,7 @@ function s:GetFileTypeSettings(ft)
 	let b:ECcommentOpen = 'comment = "'
 	let b:ECcommentClose = '"'
     " Singlepart comments:
-    elseif fileType =~ '^\(ox\|cpp\|php\|java\|verilog\|acedb\|ch\|clean\|'.
+    elseif fileType =~ '^\(ox\|cpp\|java\|verilog\|acedb\|ch\|clean\|'.
 		\ 'clipper\|cs\|dot\|dylan\|hercules\|idl\|ishd\|javascript\|'.
 		\ 'kscript\|mel\|named\|openroad\|pccts\|pfmain\|pike\|'.
 		\ 'pilrc\|plm\|pov\|rc\|scilab\|specman\|tads\|tsalt\|uc\|'.
@@ -780,7 +780,7 @@ function s:GetFileTypeSettings(ft)
 		\ 'psf\|ptcap\|r\|radiance\|ratpoison\|readline\remind\|'.
 		\ 'ruby\|screen\|sed\|sm\|snnsnet\|snnspat\|snnsres\|spec\|'.
 		\ 'squid\|terminfo\|tidy\|tli\|tsscl\|vgrindefs\|vrml\|'.
-		\ 'wget\|wml\|xf86conf\|xmath\)$'
+		\ 'wget\|wml\|xf86conf\|xmath\|php\)$'
 	let b:ECcommentOpen = '#'
 	let b:ECcommentClose = ''
     elseif fileType == 'webmacro'
@@ -1436,6 +1436,7 @@ endfunction
 "
 function s:TabsToSpaces(str)
     let string = a:str
+    return string
 
     " FIXME: Can we use something like retab? I don't think so,
     " because retab changes every whitespace in the line, but we
@@ -1455,6 +1456,7 @@ endfunction
 "
 function s:SpacesToTabs(str)
     let string = a:str
+    return string
 
     if !&expandtab
 	while string =~ '^\(\t*\)'. s:tabConvert
